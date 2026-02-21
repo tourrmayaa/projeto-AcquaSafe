@@ -36,3 +36,27 @@ app.post('/dados', (req, res) => {
 app.listen(3000, () => {
     console.log("Servidor rodando...");
 });
+
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import Home from "./pages/Home";
+import Doencas from "./pages/Doencas";
+import Solucoes from "./pages/Solucoes";
+import Periculosidade from "./pages/Periculosidade";
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Monitor de Água" component={Home} />
+        <Stack.Screen name="Doenças" component={Doencas} />
+        <Stack.Screen name="Soluções" component={Solucoes} />
+        <Stack.Screen name="Periculosidade" component={Periculosidade} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
